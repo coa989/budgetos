@@ -108,4 +108,11 @@ class AuthController extends Controller
             ]);
         }
     }
+
+    public function resendVerificationEmail()
+    {
+        Auth::user()->sendEmailVerificationNotification();
+
+        return response()->json(['message' => 'Email has been sent'], 200);
+    }
 }
