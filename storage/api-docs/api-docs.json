@@ -19,6 +19,65 @@
         }
     ],
     "paths": {
+        "/api/accounts": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Create new account",
+                "operationId": "create-account",
+                "requestBody": {
+                    "description": "Pass account details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "type",
+                                    "currency"
+                                ],
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "cash"
+                                    },
+                                    "currency": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "usd"
+                                    },
+                                    "balance": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "10000"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Parameter(s) missing",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/auth/register": {
             "post": {
                 "tags": [
