@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->foreignId('user_id');
             $table->integer('balance')->default(0);
             $table->enum('type', ['bank', 'cash', 'savings']);
+            $table->string('currency')->default('usd');
             $table->timestamps();
         });
     }
